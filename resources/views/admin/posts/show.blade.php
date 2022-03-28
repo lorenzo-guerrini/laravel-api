@@ -19,12 +19,14 @@
                 <li><strong>Category: </strong>{{ $post->category->name }}</li>
             @endif
 
-            <li>
-                <strong>Tags:</strong>
-                @foreach ($post->tags as $tag)
-                    <span style="color: white" class="badge bg-primary primary">{{ $tag->name }}</span>
-                @endforeach
-            </li>
+            @if (!$post->tags->isEmpty())
+                <li>
+                    <strong>Tags:</strong>
+                    @foreach ($post->tags as $tag)
+                        <span style="color: white" class="badge bg-primary primary">{{ $tag->name }}</span>
+                    @endforeach
+                </li>
+            @endif
 
             <li><strong>Created at: </strong>{{ $post->created_at }}</li>
             <li><strong>Updated at: </strong>{{ $post->updated_at }}</li>

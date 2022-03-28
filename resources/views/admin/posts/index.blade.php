@@ -40,9 +40,12 @@
 
                         {{-- Tag --}}
                         <td class="text-center">
-                            @foreach ($post->tags as $tag)
+                            @forelse ($post->tags as $tag)
                                 <span style="color: white" class="badge bg-primary primary">{{ $tag->name }}</span>
-                            @endforeach
+
+                            @empty
+                                /
+                            @endforelse
                         </td>
 
                         {{-- Image --}}
